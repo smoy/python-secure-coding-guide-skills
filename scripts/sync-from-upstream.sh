@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # Refresh a local cache of upstream OpenSSF rule READMEs so the reference files
-# in this skill can be diffed and re-adapted when upstream changes.
+# in the skill can be diffed and re-adapted when upstream changes.
+#
+# This is a repo-level maintenance utility, NOT part of the shipped skill — the
+# skill never invokes it. A maintainer runs it by hand to refresh the upstream
+# cache before re-adapting reference files.
 #
 # This does NOT overwrite the adapted references/ files — adaptation is a manual,
 # judgment step (trim to ~20-line examples, preserve CWE mappings). It only pulls
@@ -12,8 +16,9 @@ set -euo pipefail
 
 REPO="ossf/wg-best-practices-os-developers"
 BASE="docs/Secure-Coding-Guide-for-Python"
-HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-CACHE="$HERE/upstream-cache"
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+# Cache sits next to the adapted reference files so the two can be diffed.
+CACHE="$ROOT/skills/python-secure-coding/upstream-cache"
 
 mkdir -p "$CACHE"
 echo "Caching upstream rule READMEs from $REPO/$BASE -> $CACHE"

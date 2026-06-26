@@ -136,5 +136,6 @@ Trigger = when to pull the reference. Paths are under `references/`.
 † Overlaps the `security-guidance` plugin. The plugin reactively reviews diffs;
 these rules add the proactive Python-idiom fix. Cross-reference, don't duplicate.
 
-See `ATTRIBUTION.md` for licensing (CC-BY-4.0 docs / MIT code, OpenSSF) and
-`scripts/sync-from-upstream.sh` to refresh the upstream cache for re-adaptation.
+See `ATTRIBUTION.md` for licensing (CC-BY-4.0 docs / MIT code, OpenSSF). The
+maintainer-only `scripts/sync-from-upstream.sh` (at the repo root, outside this
+skill) refreshes the upstream cache for re-adaptation; the skill never runs it.

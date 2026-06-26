@@ -35,7 +35,8 @@ This skill ships all 9 domains of the guide (42 `pyscg-XXXX` rules adapted as of
 
 ## Sync
 
-`scripts/sync-from-upstream.sh` pulls every upstream `pyscg-XXXX/README.md` into
+The repo-level `scripts/sync-from-upstream.sh` (a maintainer utility outside this
+skill) pulls every upstream `pyscg-XXXX/README.md` into
 `upstream-cache/<domain>/` so they can be diffed against the adapted
 `references/` files. Re-adaptation (trimming examples to the essential contrast,
 preserving rule numbers and CWE mappings) remains a manual judgment step — the

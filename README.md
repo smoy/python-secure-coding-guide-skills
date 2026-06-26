@@ -39,7 +39,9 @@ identifier and CWE mapping.
 - `SKILL.md` — entry point: a lean index of every rule (do-this · trigger · CWE)
   plus heuristics. Detail lives in per-rule files, loaded only when relevant.
 - `references/<domain>/pyscg-XXXX-*.md` — one adapted rule each.
-- `scripts/sync-from-upstream.sh` — caches the upstream READMEs for re-diffing.
+
+The repo-level `scripts/sync-from-upstream.sh` (outside the skill, never invoked
+by it) caches the upstream READMEs for re-diffing — a maintainer utility only.
 
 ## Using it with Claude Code
 

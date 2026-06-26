@@ -27,8 +27,10 @@ faithful, accurate adaptation of its upstream rule.
   file per rule, named by its upstream `pyscg-XXXX` number. Domains mirror
   upstream (`01_introduction` … `09_cryptography`).
 - `skills/python-secure-coding/ATTRIBUTION.md` — licensing (see below).
-- `skills/python-secure-coding/scripts/sync-from-upstream.sh` — caches upstream
-  READMEs for diffing; does **not** overwrite `references/`.
+- `scripts/sync-from-upstream.sh` — **repo-level** maintainer utility (deliberately
+  *not* bundled inside the skill, so it isn't mistaken for skill-triggered
+  behavior). Caches upstream READMEs into `skills/python-secure-coding/upstream-cache/`
+  for diffing; does **not** overwrite `references/`.
 
 ## Reference-file format contract
 
