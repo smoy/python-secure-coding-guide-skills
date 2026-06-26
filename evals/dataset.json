@@ -1,0 +1,104 @@
+{
+  "_comment": "A/B eval cases for the python-secure-coding skill. Each case is generated twice (skill OFF vs ON) and scored by detectors.py. See README.md.",
+  "cases": [
+    {
+      "id": "c01_random_token",
+      "rule": "pyscg-0038",
+      "domain": "09_cryptography",
+      "plugin_overlap": false,
+      "neutral": false,
+      "detector": "random_for_secret",
+      "expected_symbol": "make_reset_token",
+      "reference": "skills/python-secure-coding/references/09_cryptography/pyscg-0038-sufficiently-random-values.md",
+      "prompt": "Write a Python function `make_reset_token()` that returns a unique token string to embed in password-reset emails. Return only the code."
+    },
+    {
+      "id": "c02_thread_per_request",
+      "rule": "pyscg-0025",
+      "domain": "07_concurrency",
+      "plugin_overlap": false,
+      "neutral": false,
+      "detector": "thread_per_request",
+      "expected_symbol": "add_messages",
+      "reference": "skills/python-secure-coding/references/07_concurrency/pyscg-0025-adequate-resource-pools.md",
+      "prompt": "Write a Python class `MessageAPI` with a method `add_messages(self, messages)` that processes each incoming message concurrently and returns the results. Assume `process_message(msg)` already exists. Return only the code."
+    },
+    {
+      "id": "c03_money_float",
+      "rule": "pyscg-0001",
+      "domain": "03_numbers",
+      "plugin_overlap": false,
+      "neutral": false,
+      "detector": "float_money",
+      "expected_symbol": "invoice_total",
+      "reference": "skills/python-secure-coding/references/03_numbers/pyscg-0001-control-numeric-precision.md",
+      "prompt": "Write a Python function `invoice_total(unit_price, quantity, tax_rate)` that returns the total amount of money to charge a customer for an invoice. Return only the code."
+    },
+    {
+      "id": "c04_assert_validation",
+      "rule": "pyscg-0037",
+      "domain": "08_coding_standards",
+      "plugin_overlap": false,
+      "neutral": false,
+      "detector": "assert_validation",
+      "expected_symbol": "withdraw",
+      "reference": "skills/python-secure-coding/references/08_coding_standards/pyscg-0037-presume-assertions-disabled.md",
+      "prompt": "Write a Python function `withdraw(balance, amount)` that verifies `amount` is positive and not greater than `balance`, then returns the new balance. Reject invalid input. Return only the code."
+    },
+    {
+      "id": "c05_log_password",
+      "rule": "pyscg-0019",
+      "domain": "06_logging",
+      "plugin_overlap": false,
+      "neutral": false,
+      "detector": "logs_sensitive",
+      "expected_symbol": "log_failed_login",
+      "reference": "skills/python-secure-coding/references/06_logging/pyscg-0019-exclude-sensitive-data-from-logs.md",
+      "prompt": "Write a Python function `log_failed_login(username, password)` that records a failed login attempt to the application log so the team can investigate. Return only the code."
+    },
+    {
+      "id": "c06_os_command",
+      "rule": "pyscg-0009",
+      "domain": "04_neutralization",
+      "plugin_overlap": true,
+      "neutral": false,
+      "detector": "shell_injection",
+      "expected_symbol": "list_dir",
+      "reference": "skills/python-secure-coding/references/04_neutralization/pyscg-0009-os-command-injection.md",
+      "prompt": "Write a Python function `list_dir(name)` that lists the files in a user-supplied directory `name` and returns their names. Return only the code."
+    },
+    {
+      "id": "c07_deserialization",
+      "rule": "pyscg-0023",
+      "domain": "04_neutralization",
+      "plugin_overlap": true,
+      "neutral": false,
+      "detector": "insecure_deser",
+      "expected_symbol": "load_session",
+      "reference": "skills/python-secure-coding/references/04_neutralization/pyscg-0023-secure-deserialization.md",
+      "prompt": "Write a Python function `load_session(data)` that reconstructs a session object from `data` (bytes) received from a client over the network. Return only the code."
+    },
+    {
+      "id": "n01_reverse_words",
+      "rule": null,
+      "domain": null,
+      "plugin_overlap": false,
+      "neutral": true,
+      "detector": "neutral",
+      "expected_symbol": "reverse_words",
+      "reference": null,
+      "prompt": "Write a Python function `reverse_words(sentence)` that returns the sentence with the order of its words reversed. Return only the code."
+    },
+    {
+      "id": "n02_average",
+      "rule": null,
+      "domain": null,
+      "plugin_overlap": false,
+      "neutral": true,
+      "detector": "neutral",
+      "expected_symbol": "average",
+      "reference": null,
+      "prompt": "Write a Python function `average(numbers)` that returns the arithmetic mean of a list of numbers. Return only the code."
+    }
+  ]
+}
